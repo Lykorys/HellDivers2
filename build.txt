@@ -1,0 +1,3 @@
+displayName = HellDivers2
+author = Lycoris
+version = 0.1
