@@ -3,6 +3,36 @@ Items: {
 		Tooltip: ""
 		DisplayName: Test Stratagem
 	}
+
+	Bracelet: {
+		DisplayName: Bracelet
+		Tooltip: ""
+	}
+
+	TestStratagemPlaceable: {
+		Tooltip: ""
+		DisplayName: Test Stratagem Placeable
+	}
+
+	SecondTestStratagem: {
+		Tooltip: ""
+		DisplayName: Second Test Stratagem
+	}
+
+	SecondTestStratagemPlaceable: {
+		DisplayName: Second Test Stratagem Placeable
+		Tooltip: ""
+	}
 }
 
-Projectiles.TestStratagemEntity.DisplayName: Test Stratagem Entity
+Projectiles: {
+	TestStratagemEntity.DisplayName: Test Stratagem Entity
+	SecondTestStratagemEntity.DisplayName: Second Test Stratagem Entity
+}
+
+Keybinds: {
+	DownArrow.DisplayName: Down Arrow
+	UpArrow.DisplayName: Up Arrow
+	RightArrow.DisplayName: Right Arrow
+	LeftArrow.DisplayName: Left Arrow
+}

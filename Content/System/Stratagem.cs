@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using Microsoft.Build.Evaluation;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -18,20 +21,59 @@ namespace HellDivers2.Content.System
         RED,
         BLUE
     }
-    public abstract class Stratagem : ModItem
+    public abstract class StratagemPlaceable : ModItem
     {
-        public Arrows[] sequence;
+        /*
+        This class represents the item you put in the bracelet
+        */
+        public List<Arrows> sequence = new();
+        public List<Arrows> currentSequence;
+        public StratagemItem givenStrat;
+        public void resetSequence() => currentSequence= [.. sequence];
+        public string showSeq()
+        {
+            string res="";
+            foreach( var arr in sequence)
+            {
+                switch (arr)
+                {
+                    case Arrows.UP:
+                        res+="UP ";
+                        break;
+                    case Arrows.DOWN:
+                        res+="DOWN ";
+                        break;
+                    case Arrows.LEFT:
+                        res+="LEFT ";
+                        break;
+                    case Arrows.RIGHT:
+                        res+="RIGHT ";
+                        break;
+                }
+            }
+            return res;
+        }
+    }
+    public abstract class StratagemItem : ModItem
+    {
+        /*
+        This class represents the item you get after giving the right sequence with the bracelet
+        */
         public int cooldown;
+        public int timeToDetonate;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Projectile proj = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
-            if(proj.ModProjectile is StratagemEntity strat) strat.cooldown=cooldown;
+            if(proj.ModProjectile is StratagemEntity strat) strat.timeToDetonate=timeToDetonate;
             return false;
         }
     }
     public abstract class StratagemEntity : ModProjectile
     {
-        public int cooldown { get; set; }
+        /*
+        This class represents the projectile that spawn after throwing the stratagem
+        */
+        public int timeToDetonate { get; set; }
         public override void SetDefaults()
         {
             Projectile.width = 14;
@@ -52,9 +94,10 @@ namespace HellDivers2.Content.System
         }
         public override void AI()
         {
-            if(cooldown>0) cooldown--;
+            if(timeToDetonate>0) timeToDetonate--;
             else
             {
+                
                 onDetonate();
             }
             Projectile.ai[0] += 1f;
@@ -67,5 +110,6 @@ namespace HellDivers2.Content.System
 			Projectile.rotation += Projectile.velocity.X * 0.1f;
         }
         public abstract void onDetonate();
+        
     }
 }
