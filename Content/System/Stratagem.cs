@@ -67,6 +67,10 @@ namespace HellDivers2.Content.System
             if(proj.ModProjectile is StratagemEntity strat) strat.timeToDetonate=timeToDetonate;
             return false;
         }
+        /*public override void UpdateInventory(Player player)
+        {
+            if (player.HeldItem != Item)Item.TurnToAir();
+        }*/
     }
     public abstract class StratagemEntity : ModProjectile
     {
