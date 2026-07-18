@@ -23,11 +23,23 @@ Items: {
 		DisplayName: Second Test Stratagem Placeable
 		Tooltip: ""
 	}
+
+	KGBombStratagem: {
+		Tooltip: ""
+		DisplayName: K G Bomb Stratagem
+	}
+
+	KGBombPlaceable: {
+		Tooltip: ""
+		DisplayName: K G Bomb Placeable
+	}
 }
 
 Projectiles: {
 	TestStratagemEntity.DisplayName: Test Stratagem Entity
 	SecondTestStratagemEntity.DisplayName: Second Test Stratagem Entity
+	KGBombStratagemEntity.DisplayName: K G Bomb Stratagem Entity
+	KGBombProjectile.DisplayName: K G Bomb Projectile
 }
 
 Keybinds: {

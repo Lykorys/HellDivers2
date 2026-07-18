@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using HellDivers2.Content.System;
 using Microsoft.Build.Evaluation;
 using Terraria;
@@ -14,15 +15,17 @@ public class SecondTestStratagemPlaceable : StratagemPlaceable
     {
         Item.width = 20;
         Item.height = 20;
-        Item.useTime = 25;
-        Item.useAnimation = 25;
-        Item.useStyle = ItemUseStyleID.Swing;
+        Item.useTime = 5;
+        Item.useAnimation = 5;
+        Item.useStyle = ItemUseStyleID.HoldUp;
         Item.noMelee = true;
-        Item.consumable = true;
+        Item.consumable = false;
         Item.maxStack = 1;
         Item.shootSpeed = 8f;
         sequence = new List<Arrows> { Arrows.RIGHT, Arrows.DOWN, Arrows.RIGHT, Arrows.LEFT, Arrows.UP };
-        givenStrat = new TestStratagem();
+        givenStrat = ModContent.GetInstance<SecondTestStratagem>();
+        cooldown = 180;
+        OriginalCD=180;
         resetSequence();
     }
 }
@@ -41,7 +44,7 @@ public class SecondTestStratagem : StratagemItem
         Item.maxStack = 1;
         Item.shootSpeed = 8f;
         timeToDetonate=120;
-        cooldown = 180;
+        color=HellDivers2.Content.System.Colors.blue;
         Item.shoot = ModContent.ProjectileType<TestStratagemEntity>();
     }
 }
@@ -50,7 +53,7 @@ public class SecondTestStratagemEntity : StratagemEntity
     public override string Texture => "Terraria/Images/Projectile_" + ProjectileID.Grenade;
     public override void onDetonate()
     {
-        Main.NewText("boom");//explose pas direct apres car fuse de la grenade
+        Main.NewText("boom2");//explose pas direct apres car fuse de la grenade
         Projectile.NewProjectile(Projectile.GetSource_FromThis(),Projectile.position,Projectile.velocity,ProjectileID.Grenade,10,1f);
         Projectile.Kill();
     }

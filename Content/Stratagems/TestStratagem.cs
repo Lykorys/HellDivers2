@@ -14,15 +14,18 @@ public class TestStratagemPlaceable : StratagemPlaceable
     {
         Item.width = 20;
         Item.height = 20;
-        Item.useTime = 25;
-        Item.useAnimation = 25;
-        Item.useStyle = ItemUseStyleID.Swing;
+        Item.useTime = 5;
+        Item.useAnimation = 5;
+        Item.useStyle = ItemUseStyleID.HoldUp;
         Item.noMelee = true;
-        Item.consumable = true;
+        Item.consumable = false;
         Item.maxStack = 1;
         Item.shootSpeed = 8f;
         sequence = new List<Arrows> { Arrows.UP, Arrows.DOWN, Arrows.RIGHT, Arrows.LEFT, Arrows.UP };
-        givenStrat = new TestStratagem();
+        givenStrat =  ModContent.GetInstance<TestStratagem>();
+        cooldown = 180;
+        OriginalCD=180;
+        
         resetSequence();
     }
 }
@@ -41,7 +44,7 @@ public class TestStratagem : StratagemItem
         Item.maxStack = 1;
         Item.shootSpeed = 8f;
         timeToDetonate=120;
-        cooldown = 180;
+        color=HellDivers2.Content.System.Colors.blue;
         Item.shoot = ModContent.ProjectileType<TestStratagemEntity>();
     }
 }

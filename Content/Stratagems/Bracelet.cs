@@ -5,14 +5,17 @@ using HellDivers2.Content.System;
 using System.Collections.Generic;
 using System.Linq;
 using HellDivers2.Content.Config;
+using Microsoft.Xna.Framework.Input;
+using HellDivers2.Content.UI;
 
 namespace HellDivers2.Content
 {
 	public class Bracelet : ModItem
 	{
         public bool isInUse = false;
-        public List<StratagemPlaceable> stratagems = new(4);
+        public HDPlayer hDPlayer;
         public override string Texture => "Terraria/Images/Item_" + ItemID.Pho;
+        public override bool AltFunctionUse(Player player) => true;
 		public override void SetDefaults() {
 			Item.width = 20;
 			Item.height = 20;
@@ -23,23 +26,30 @@ namespace HellDivers2.Content
 			Item.useTime = 30;
 			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = false;
-            Item tempItem = new();
-            tempItem.SetDefaults(ModContent.ItemType<TestStratagemPlaceable>());
-            if (tempItem.ModItem is StratagemPlaceable testStratagem)
-            {
-                stratagems.Add(testStratagem);
-            }
-            Item tItem = new();
-            tempItem.SetDefaults(ModContent.ItemType<SecondTestStratagemPlaceable>());
-            if (tempItem.ModItem is StratagemPlaceable rst)
-            {
-                stratagems.Add(rst);
-            }
 		}
 
 		public override bool? UseItem(Player player) {
-            isInUse=!isInUse;
-            Main.NewText(isInUse);
+            hDPlayer = player.GetModPlayer<HDPlayer>();
+            if(player.altFunctionUse == 2)
+            {
+                var uiSystem = ModContent.GetInstance<StratagemSystem>();
+                if (uiSystem != null)
+                {
+                    if (uiSystem.userInterface?.CurrentState == null) uiSystem.ShowUI();
+                    else uiSystem.HideMyUI();
+                }
+            }
+            else
+            {
+                isInUse=!isInUse;
+                Main.NewText(isInUse);
+                var uiSystem = ModContent.GetInstance<ArrowsSystem>();
+                if (uiSystem != null)
+                {
+                    if (uiSystem.userInterface?.CurrentState == null) uiSystem.ShowUI();
+                    else uiSystem.HideMyUI();
+                }
+            }
             return true;
         }
         public override void HoldItem(Player player)
@@ -53,28 +63,31 @@ namespace HellDivers2.Content
                 if (KeybindSystem.RightArrow.JustPressed) pressed = Arrows.RIGHT;
                 if (pressed.HasValue)
                 {
-                    foreach(StratagemPlaceable strat in stratagems){
+                    foreach(StratagemPlaceable strat in hDPlayer.stratagems){
                         Main.NewText(strat.showSeq());
+                        Main.NewText(strat.Type);
+                        Main.NewText(strat.isInCD);
+                        if(strat.isInCD) continue;
                         if(strat.currentSequence.First()==pressed)
                         {
                             strat.currentSequence.RemoveAt(0);
                             Main.NewText("correct");
                             if (strat.currentSequence.Count == 0)
                             {
+                                player.QuickSpawnItem(player.GetSource_ItemUse(Item), strat.givenStrat.Item.type, 1);
                                 Main.NewText("give");
                                 strat.resetSequence();
+                                strat.isInCD=true;
                             }
-                            
                         }
                         else
                         {
                             strat.resetSequence(); 
-                            Main.NewText("reset");
                         } 
                     }
                 }
             }
-            else{ Main.NewText(stratagems);}
+            else{}
         }
 	}
 }
