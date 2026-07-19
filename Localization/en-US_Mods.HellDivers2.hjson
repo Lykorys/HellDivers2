@@ -33,6 +33,46 @@ Items: {
 		Tooltip: ""
 		DisplayName: K G Bomb Placeable
 	}
+
+	SmallHEBarrageStratagem: {
+		Tooltip: ""
+		DisplayName: Small H E Barrage Stratagem
+	}
+
+	SmallHEBarrage: {
+		Tooltip: ""
+		DisplayName: Small H E Barrage
+	}
+
+	BigHEBarrage: {
+		DisplayName: Big H E Barrage
+		Tooltip: ""
+	}
+
+	BigHEBarrageStratagem: {
+		DisplayName: Big H E Barrage Stratagem
+		Tooltip: ""
+	}
+
+	BigHEBarragePlaceable: {
+		DisplayName: Big H E Barrage Placeable
+		Tooltip: ""
+	}
+
+	PrecisionStrikePlaceable: {
+		DisplayName: Precision Strike Placeable
+		Tooltip: ""
+	}
+
+	PrecisionStrikeStratagem: {
+		DisplayName: Precision Strike Stratagem
+		Tooltip: ""
+	}
+
+	SmallHEBarragePlaceable: {
+		DisplayName: Small H E Barrage Placeable
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -40,6 +80,11 @@ Projectiles: {
 	SecondTestStratagemEntity.DisplayName: Second Test Stratagem Entity
 	KGBombStratagemEntity.DisplayName: K G Bomb Stratagem Entity
 	KGBombProjectile.DisplayName: K G Bomb Projectile
+	Missile.DisplayName: Missile
+	BarrageStratagemEntity.DisplayName: Barrage Stratagem Entity
+	SmallHEBarrageStratagemEntity.DisplayName: Small H E Barrage Stratagem Entity
+	BigHEBarrageStratagemEntity.DisplayName: Big H E Barrage Stratagem Entity
+	PrecisionStrikeStratagemEntity.DisplayName: Precision Strike Stratagem Entity
 }
 
 Keybinds: {

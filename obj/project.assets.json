@@ -1,11 +1,412 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Krafs.Publicizer/2.3.0": {
+        "type": "package",
+        "contentFiles": {
+          "contentfiles/cs/any/Publicizer/IgnoresAccessChecksToAttribute.cs": {
+            "buildAction": "Compile",
+            "codeLanguage": "cs",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "build/Krafs.Publicizer.props": {},
+          "build/Krafs.Publicizer.targets": {}
+        }
+      },
+      "tModLoader/2026.5.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Basic.Reference.Assemblies.Net80.dll": {},
+          "lib/net8.0/CsvHelper.dll": {},
+          "lib/net8.0/DotNetZip.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/FNA.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Hjson.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/Humanizer.dll": {},
+          "lib/net8.0/JetBrains.Annotations.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/MP3Sharp.dll": {},
+          "lib/net8.0/Microsoft.Build.Framework.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/Microsoft.Build.Locator.dll": {},
+          "lib/net8.0/Microsoft.Build.Tasks.Core.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/Microsoft.Build.Utilities.Core.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/Microsoft.Build.dll": {
+            "related": ".Framework.pdb;.Framework.xml;.pdb;.Tasks.Core.pdb;.Tasks.Core.xml;.Utilities.Core.pdb;.Utilities.Core.xml;.xml"
+          },
+          "lib/net8.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/Microsoft.CodeAnalysis.CSharp.dll": {
+            "related": ".pdb;.Workspaces.pdb;.Workspaces.xml;.xml"
+          },
+          "lib/net8.0/Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll": {},
+          "lib/net8.0/Microsoft.CodeAnalysis.FlowAnalysis.Utilities.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll": {},
+          "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.dll": {
+            "related": ".MSBuild.pdb;.MSBuild.xml;.pdb;.xml"
+          },
+          "lib/net8.0/Microsoft.CodeAnalysis.dll": {
+            "related": ".CSharp.pdb;.CSharp.Workspaces.pdb;.CSharp.Workspaces.xml;.CSharp.xml;.FlowAnalysis.Utilities.xml;.pdb;.Workspaces.MSBuild.pdb;.Workspaces.MSBuild.xml;.Workspaces.pdb;.Workspaces.xml;.xml"
+          },
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "related": ".Abstractions.xml;.xml"
+          },
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
+            "related": ".Abstractions.xml;.xml"
+          },
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/Microsoft.NET.StringTools.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/Microsoft.VisualStudio.Setup.Configuration.Interop.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/Mono.Cecil.Mdb.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Mono.Cecil.Pdb.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Mono.Cecil.Rocks.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/Mono.Cecil.dll": {
+            "related": ".Mdb.pdb;.pdb;.Pdb.pdb;.Rocks.pdb"
+          },
+          "lib/net8.0/MonoMod.Backports.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/MonoMod.Core.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/MonoMod.ILHelpers.dll": {
+            "related": ".pdb"
+          },
+          "lib/net8.0/MonoMod.Iced.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/MonoMod.RuntimeDetour.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/MonoMod.Utils.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/NVorbis.dll": {},
+          "lib/net8.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/RailSDK.Net.dll": {},
+          "lib/net8.0/ReLogic.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/Steamworks.NET.dll": {},
+          "lib/net8.0/SteelSeriesEngineWrapper.dll": {},
+          "lib/net8.0/Stubble.Core.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/System.CodeDom.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.CommandLine.dll": {},
+          "lib/net8.0/System.Composition.AttributedModel.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Composition.Convention.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Composition.Hosting.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Composition.Runtime.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Composition.TypedParts.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Configuration.ConfigurationManager.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Diagnostics.EventLog.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Reflection.MetadataLoadContext.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Resources.Extensions.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Security.Cryptography.ProtectedData.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Security.Cryptography.Xml.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Security.Permissions.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Text.Json.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/System.Windows.Extensions.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/TerrariaHooks.dll": {},
+          "lib/net8.0/UtfUnknown.dll": {
+            "related": ".xml"
+          },
+          "lib/net8.0/log4net.dll": {},
+          "lib/net8.0/tModLoader.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net8.0/tModPorter.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/_._": {}
+        },
+        "build": {
+          "build/tModLoader.targets": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Krafs.Publicizer/2.3.0": {
+      "sha512": "DjktTgctwxUMhMkWKrRECer3LR1lHzanCOlE4mpinAiY8SfWJq4DG/QitP5h1A+WBjyWHzQSOG+204i3VpO1FA==",
+      "type": "package",
+      "path": "krafs.publicizer/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/Krafs.Publicizer.props",
+        "build/Krafs.Publicizer.targets",
+        "build/net472/Publicizer.dll",
+        "build/net472/dnlib.dll",
+        "contentfiles/cs/any/Publicizer/IgnoresAccessChecksToAttribute.cs",
+        "icon.png",
+        "krafs.publicizer.2.3.0.nupkg.sha512",
+        "krafs.publicizer.nuspec"
+      ]
+    },
+    "tModLoader/2026.5.3": {
+      "sha512": "37mboQjR4AXpASwDMKcGJ1AgG33ALRG1vc0D43R2ONIJu8s5g8sl4hDIB4sD6t2Nyahug2wEEw8pvp+hO8Ji7A==",
+      "type": "package",
+      "path": "tmodloader/2026.5.3",
+      "files": [
+        ".nupkg.metadata",
+        "analyzers/dotnet/cs/tModCodeAssist.CodeFixes.dll",
+        "analyzers/dotnet/cs/tModCodeAssist.dll",
+        "build/tModLoader.targets",
+        "lib/net8.0/Basic.Reference.Assemblies.Net80.dll",
+        "lib/net8.0/CsvHelper.dll",
+        "lib/net8.0/DotNetZip.dll",
+        "lib/net8.0/DotNetZip.pdb",
+        "lib/net8.0/DotNetZip.xml",
+        "lib/net8.0/FNA.dll",
+        "lib/net8.0/FNA.pdb",
+        "lib/net8.0/Hjson.dll",
+        "lib/net8.0/Hjson.xml",
+        "lib/net8.0/Humanizer.dll",
+        "lib/net8.0/JetBrains.Annotations.dll",
+        "lib/net8.0/JetBrains.Annotations.xml",
+        "lib/net8.0/MP3Sharp.dll",
+        "lib/net8.0/Microsoft.Build.Framework.dll",
+        "lib/net8.0/Microsoft.Build.Framework.pdb",
+        "lib/net8.0/Microsoft.Build.Framework.xml",
+        "lib/net8.0/Microsoft.Build.Locator.dll",
+        "lib/net8.0/Microsoft.Build.Tasks.Core.dll",
+        "lib/net8.0/Microsoft.Build.Tasks.Core.pdb",
+        "lib/net8.0/Microsoft.Build.Tasks.Core.xml",
+        "lib/net8.0/Microsoft.Build.Utilities.Core.dll",
+        "lib/net8.0/Microsoft.Build.Utilities.Core.pdb",
+        "lib/net8.0/Microsoft.Build.Utilities.Core.xml",
+        "lib/net8.0/Microsoft.Build.dll",
+        "lib/net8.0/Microsoft.Build.pdb",
+        "lib/net8.0/Microsoft.Build.xml",
+        "lib/net8.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.CSharp.Workspaces.pdb",
+        "lib/net8.0/Microsoft.CodeAnalysis.CSharp.Workspaces.xml",
+        "lib/net8.0/Microsoft.CodeAnalysis.CSharp.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.CSharp.pdb",
+        "lib/net8.0/Microsoft.CodeAnalysis.CSharp.xml",
+        "lib/net8.0/Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.FlowAnalysis.Utilities.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.FlowAnalysis.Utilities.xml",
+        "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.pdb",
+        "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.xml",
+        "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.pdb",
+        "lib/net8.0/Microsoft.CodeAnalysis.Workspaces.xml",
+        "lib/net8.0/Microsoft.CodeAnalysis.dll",
+        "lib/net8.0/Microsoft.CodeAnalysis.pdb",
+        "lib/net8.0/Microsoft.CodeAnalysis.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Logging.dll",
+        "lib/net8.0/Microsoft.Extensions.Logging.xml",
+        "lib/net8.0/Microsoft.Extensions.Options.dll",
+        "lib/net8.0/Microsoft.Extensions.Options.xml",
+        "lib/net8.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net8.0/Microsoft.Extensions.Primitives.xml",
+        "lib/net8.0/Microsoft.NET.StringTools.dll",
+        "lib/net8.0/Microsoft.NET.StringTools.pdb",
+        "lib/net8.0/Microsoft.NET.StringTools.xml",
+        "lib/net8.0/Microsoft.VisualStudio.Setup.Configuration.Interop.dll",
+        "lib/net8.0/Microsoft.VisualStudio.Setup.Configuration.Interop.xml",
+        "lib/net8.0/Microsoft.Win32.Registry.xml",
+        "lib/net8.0/Mono.Cecil.Mdb.dll",
+        "lib/net8.0/Mono.Cecil.Mdb.pdb",
+        "lib/net8.0/Mono.Cecil.Pdb.dll",
+        "lib/net8.0/Mono.Cecil.Pdb.pdb",
+        "lib/net8.0/Mono.Cecil.Rocks.dll",
+        "lib/net8.0/Mono.Cecil.Rocks.pdb",
+        "lib/net8.0/Mono.Cecil.dll",
+        "lib/net8.0/Mono.Cecil.pdb",
+        "lib/net8.0/MonoMod.Backports.dll",
+        "lib/net8.0/MonoMod.Backports.pdb",
+        "lib/net8.0/MonoMod.Backports.xml",
+        "lib/net8.0/MonoMod.Core.dll",
+        "lib/net8.0/MonoMod.Core.pdb",
+        "lib/net8.0/MonoMod.Core.xml",
+        "lib/net8.0/MonoMod.ILHelpers.dll",
+        "lib/net8.0/MonoMod.ILHelpers.pdb",
+        "lib/net8.0/MonoMod.Iced.dll",
+        "lib/net8.0/MonoMod.Iced.pdb",
+        "lib/net8.0/MonoMod.Iced.xml",
+        "lib/net8.0/MonoMod.RuntimeDetour.dll",
+        "lib/net8.0/MonoMod.RuntimeDetour.pdb",
+        "lib/net8.0/MonoMod.RuntimeDetour.xml",
+        "lib/net8.0/MonoMod.Utils.dll",
+        "lib/net8.0/MonoMod.Utils.pdb",
+        "lib/net8.0/MonoMod.Utils.xml",
+        "lib/net8.0/NVorbis.dll",
+        "lib/net8.0/Newtonsoft.Json.dll",
+        "lib/net8.0/Newtonsoft.Json.xml",
+        "lib/net8.0/RailSDK.Net.dll",
+        "lib/net8.0/ReLogic.dll",
+        "lib/net8.0/ReLogic.pdb",
+        "lib/net8.0/ReLogic.xml",
+        "lib/net8.0/Steamworks.NET.dll",
+        "lib/net8.0/SteelSeriesEngineWrapper.dll",
+        "lib/net8.0/Stubble.Core.dll",
+        "lib/net8.0/Stubble.Core.pdb",
+        "lib/net8.0/Stubble.Core.xml",
+        "lib/net8.0/System.CodeDom.dll",
+        "lib/net8.0/System.CodeDom.xml",
+        "lib/net8.0/System.Collections.Immutable.dll",
+        "lib/net8.0/System.Collections.Immutable.xml",
+        "lib/net8.0/System.CommandLine.dll",
+        "lib/net8.0/System.Composition.AttributedModel.dll",
+        "lib/net8.0/System.Composition.AttributedModel.xml",
+        "lib/net8.0/System.Composition.Convention.dll",
+        "lib/net8.0/System.Composition.Convention.xml",
+        "lib/net8.0/System.Composition.Hosting.dll",
+        "lib/net8.0/System.Composition.Hosting.xml",
+        "lib/net8.0/System.Composition.Runtime.dll",
+        "lib/net8.0/System.Composition.Runtime.xml",
+        "lib/net8.0/System.Composition.TypedParts.dll",
+        "lib/net8.0/System.Composition.TypedParts.xml",
+        "lib/net8.0/System.Configuration.ConfigurationManager.dll",
+        "lib/net8.0/System.Configuration.ConfigurationManager.xml",
+        "lib/net8.0/System.Diagnostics.EventLog.dll",
+        "lib/net8.0/System.Diagnostics.EventLog.xml",
+        "lib/net8.0/System.Formats.Asn1.xml",
+        "lib/net8.0/System.IO.Pipelines.dll",
+        "lib/net8.0/System.IO.Pipelines.xml",
+        "lib/net8.0/System.Reflection.Metadata.xml",
+        "lib/net8.0/System.Reflection.MetadataLoadContext.dll",
+        "lib/net8.0/System.Reflection.MetadataLoadContext.xml",
+        "lib/net8.0/System.Resources.Extensions.dll",
+        "lib/net8.0/System.Resources.Extensions.xml",
+        "lib/net8.0/System.Security.AccessControl.xml",
+        "lib/net8.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net8.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/net8.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net8.0/System.Security.Cryptography.ProtectedData.xml",
+        "lib/net8.0/System.Security.Cryptography.Xml.dll",
+        "lib/net8.0/System.Security.Cryptography.Xml.xml",
+        "lib/net8.0/System.Security.Permissions.dll",
+        "lib/net8.0/System.Security.Permissions.xml",
+        "lib/net8.0/System.Security.Principal.Windows.xml",
+        "lib/net8.0/System.Text.Encoding.CodePages.xml",
+        "lib/net8.0/System.Text.Encodings.Web.dll",
+        "lib/net8.0/System.Text.Encodings.Web.xml",
+        "lib/net8.0/System.Text.Json.dll",
+        "lib/net8.0/System.Text.Json.xml",
+        "lib/net8.0/System.Threading.Channels.xml",
+        "lib/net8.0/System.Threading.Tasks.Dataflow.xml",
+        "lib/net8.0/System.Windows.Extensions.dll",
+        "lib/net8.0/System.Windows.Extensions.xml",
+        "lib/net8.0/TerrariaHooks.dll",
+        "lib/net8.0/UtfUnknown.dll",
+        "lib/net8.0/UtfUnknown.xml",
+        "lib/net8.0/log4net.dll",
+        "lib/net8.0/tModLoader.dll",
+        "lib/net8.0/tModLoader.pdb",
+        "lib/net8.0/tModLoader.xml",
+        "lib/net8.0/tModPorter.dll",
+        "lib/net8.0/tModPorter.pdb",
+        "tmodloader.2026.5.3.nupkg.sha512",
+        "tmodloader.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Krafs.Publicizer >= 2.3.0",
+      "tModLoader >= 2026.5.3"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\gevan\\.nuget\\packages\\": {}
@@ -26,6 +427,7 @@
         "net8.0"
       ],
       "sources": {
+        "C:\\Users\\gevan\\AppData\\Roaming\\tml-build\\feed\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -48,6 +450,20 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Krafs.Publicizer": {
+            "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.3.0, )"
+          },
+          "tModLoader": {
+            "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2026.5.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

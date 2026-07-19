@@ -1,6 +1,7 @@
 
 using Terraria.ModLoader;
 using Terraria;
+using HellDivers2.Content.Stratagems;
 namespace HellDivers2.Content.System
 {
     public class HDPlayer : ModPlayer

@@ -9,6 +9,7 @@ using ReLogic.Utilities;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace HellDivers2.Content.System
@@ -30,12 +31,25 @@ namespace HellDivers2.Content.System
         /*
         This class represents the item you put in the bracelet
         */
-        public List<Arrows> sequence = [];
-        public List<Arrows> currentSequence;
-        public StratagemItem givenStrat;
+        public required List<Arrows> sequence = [];
+        public required List<Arrows> currentSequence;
+        public required StratagemItem givenStrat;
         public int cooldown;
         public int OriginalCD;
         public bool isInCD=false;
+        public override string Texture => "Terraria/Images/Item_" + ItemID.Safe;
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.useTime = 5;
+            Item.useAnimation = 5;
+            Item.useStyle = ItemUseStyleID.HoldUp;
+            Item.noMelee = true;
+            Item.consumable = false;
+            Item.maxStack = 1;
+            Item.shootSpeed = 8f;
+        }
         public void resetSequence() => currentSequence= [.. sequence];
         public string showSeq()
         {
@@ -68,6 +82,19 @@ namespace HellDivers2.Content.System
         */
         public Colors color;
         public int timeToDetonate;
+        public override string Texture => "Terraria/Images/Item_" + ItemID.SpikyBall;
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.useTime = 25;
+            Item.useAnimation = 25;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.noMelee = true;
+            Item.consumable = true;
+            Item.maxStack = 1;
+            Item.shootSpeed = 8f;
+        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             Projectile proj = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
@@ -84,6 +111,7 @@ namespace HellDivers2.Content.System
         /*
         This class represents the projectile that spawn after throwing the stratagem
         */
+        public override string Texture => "Terraria/Images/Projectile_" + ProjectileID.Grenade;
         public Colors color;
         public int timeToDetonate { get; set; }
         public static float treshold = 4f;

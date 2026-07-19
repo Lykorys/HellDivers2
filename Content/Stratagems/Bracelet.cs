@@ -8,7 +8,7 @@ using HellDivers2.Content.Config;
 using Microsoft.Xna.Framework.Input;
 using HellDivers2.Content.UI;
 
-namespace HellDivers2.Content
+namespace HellDivers2.Content.Stratagems
 {
 	public class Bracelet : ModItem
 	{
