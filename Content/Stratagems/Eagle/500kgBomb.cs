@@ -34,7 +34,6 @@ namespace HellDivers2.Content.Stratagems
         public override void onDetonate()
         {
             Main.NewText("Calling in Orbital Strike!"); 
-            Vector2 explosionRadius = new Vector2(40, 60);
             MissileStats stats = new MissileStats
             {
                 velocity = new(0f,0f),
