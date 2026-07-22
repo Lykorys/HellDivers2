@@ -73,6 +73,56 @@ Items: {
 		DisplayName: Small H E Barrage Placeable
 		Tooltip: ""
 	}
+
+	NapalmBarragePlaceable: {
+		DisplayName: Napalm Barrage Placeable
+		Tooltip: ""
+	}
+
+	NapalmBarrageStratagem: {
+		DisplayName: Napalm Barrage Stratagem
+		Tooltip: ""
+	}
+
+	GatlingBarragePlaceable: {
+		Tooltip: ""
+		DisplayName: Gatling Barrage Placeable
+	}
+
+	GatlingBarrageStratagem: {
+		DisplayName: Gatling Barrage Stratagem
+		Tooltip: ""
+	}
+
+	WalkingBarragePlaceable: {
+		DisplayName: Walking Barrage Placeable
+		Tooltip: ""
+	}
+
+	WalkingBarrageStratagem: {
+		DisplayName: Walking Barrage Stratagem
+		Tooltip: ""
+	}
+
+	AntiPersoMinefieldPlaceable: {
+		DisplayName: Anti Perso Minefield Placeable
+		Tooltip: ""
+	}
+
+	AntiPersoMinefieldStratagem: {
+		DisplayName: Anti Perso Minefield Stratagem
+		Tooltip: ""
+	}
+
+	AntiTankMinefieldStratagem: {
+		Tooltip: ""
+		DisplayName: Anti Tank Minefield Stratagem
+	}
+
+	AntiTankMinefieldPlaceable: {
+		Tooltip: ""
+		DisplayName: Anti Tank Minefield Placeable
+	}
 }
 
 Projectiles: {
@@ -82,9 +132,31 @@ Projectiles: {
 	KGBombProjectile.DisplayName: K G Bomb Projectile
 	Missile.DisplayName: Missile
 	BarrageStratagemEntity.DisplayName: Barrage Stratagem Entity
+	BarrageStratagem.DisplayName: Barrage Stratagem
 	SmallHEBarrageStratagemEntity.DisplayName: Small H E Barrage Stratagem Entity
 	BigHEBarrageStratagemEntity.DisplayName: Big H E Barrage Stratagem Entity
 	PrecisionStrikeStratagemEntity.DisplayName: Precision Strike Stratagem Entity
+	FireResidue.DisplayName: Fire Residue
+	NapalmMissile.DisplayName: Napalm Missile
+	BarrageHEStratagemEntity.DisplayName: Barrage H E Stratagem Entity
+	BarrageHEStratagem.DisplayName: Barrage H E Stratagem
+	BarrageNapalmStratagemEntity.DisplayName: Barrage Napalm Stratagem Entity
+	BarrageNapalmStratagem.DisplayName: Barrage Napalm Stratagem
+	NapalmBarrageStratagemEntity.DisplayName: Napalm Barrage Stratagem Entity
+	BarrageGatlingStratagem.DisplayName: Barrage Gatling Stratagem
+	GatlingBarrageStratagemEntity.DisplayName: Gatling Barrage Stratagem Entity
+	GatlingMissile.DisplayName: Gatling Missile
+	WalkingBarrageStratagemEntity.DisplayName: Walking Barrage Stratagem Entity
+	AntiPersonnelMine.DisplayName: Anti Personnel Mine
+	Mine.DisplayName: Mine
+	MineFieldEntity.DisplayName: Mine Field Entity
+	AntiPersoMine.DisplayName: Anti Perso Mine
+	AntiPersoMinefieldEntity.DisplayName: Anti Perso Minefield Entity
+	AntiPersoMinefieldStratagemEntity.DisplayName: Anti Perso Minefield Stratagem Entity
+	MinefieldEntity.DisplayName: Minefield Entity
+	AntiTankMinefieldStratagemEntity.DisplayName: Anti Tank Minefield Stratagem Entity
+	AntiTankMinefieldEntity.DisplayName: Anti Tank Minefield Entity
+	AntiTankMine.DisplayName: Anti Tank Mine
 }
 
 Keybinds: {

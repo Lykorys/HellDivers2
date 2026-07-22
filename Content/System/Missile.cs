@@ -8,8 +8,16 @@ using Terraria.DataStructures;
 using Microsoft.Build.Evaluation;
 using Terraria.Audio;
 
-namespace HellDivers2.Content.Stratagems
+namespace HellDivers2.Content.System
 {
+    public struct MissileStats
+    {
+        public Vector2 velocity;
+        public Vector2 explosionRadius;
+        public int damage;
+        public int fuse;
+    }
+
     public class Missile : ModProjectile
     {
         public override string Texture => "Terraria/Images/Projectile_" + ProjectileID.RocketI;

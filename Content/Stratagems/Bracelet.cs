@@ -13,7 +13,7 @@ namespace HellDivers2.Content.Stratagems
 	public class Bracelet : ModItem
 	{
         public bool isInUse = false;
-        public HDPlayer hDPlayer;
+        public required HDPlayer hDPlayer;
         public override string Texture => "Terraria/Images/Item_" + ItemID.Pho;
         public override bool AltFunctionUse(Player player) => true;
 		public override void SetDefaults() {

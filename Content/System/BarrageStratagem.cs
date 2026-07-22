@@ -8,13 +8,6 @@ using Terraria.GameContent;
 using ReLogic.Content;
 namespace HellDivers2.Content.Stratagems
 {
-    public struct MissileStats
-    {
-        public Vector2 velocity;
-        public Vector2 explosionRadius;
-        public int damage;
-        public int fuse;
-    }
 
 
     public class BarrageStratagem : StratagemEntity
