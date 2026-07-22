@@ -30,7 +30,7 @@ namespace HellDivers2.Content.Stratagems
             Projectile.velocity = Vector2.Zero;
             return false;
         }
-        public static void SpawnMissile(Vector2 target,MissileStats stats, bool fallStraight = true)
+        public static void SpawnMissileGeneric<T>(Vector2 target,MissileStats stats, bool fallStraight = true) where T : Missile
         {
             float spawnDistance = 1200f;
             float radians;
@@ -51,7 +51,7 @@ namespace HellDivers2.Content.Stratagems
                 null,
                 spawnPos, 
                 velocity, 
-                ModContent.ProjectileType<Missile>(), 
+                ModContent.ProjectileType<T>(), 
                 stats.damage, 
                 0f, 
                 Main.myPlayer, 
@@ -59,6 +59,10 @@ namespace HellDivers2.Content.Stratagems
                 stats.explosionRadius.Y, // ai[1]: Height
                 stats.fuse      // ai[2]: Fuse 
             );
+        }
+        public static void SpawnMissile(Vector2 target, MissileStats stats, bool fallStraight = true)
+        {
+            SpawnMissileGeneric<Missile>(target, stats, fallStraight);
         }
         public override void OnSpawn(IEntitySource source)
         {
@@ -108,5 +112,106 @@ namespace HellDivers2.Content.Stratagems
             }
         }
         
+    }
+
+
+
+    public class NapalmMissile : Missile
+    {
+        public override string Texture => "Terraria/Images/Projectile_" + ProjectileID.RocketII;
+        public new static void SpawnMissile(Vector2 target, MissileStats stats, bool fallStraight = true)
+        {
+            SpawnMissileGeneric<NapalmMissile>(target, stats, fallStraight);
+        }
+        public override void OnKill(int timeLeft) {
+            base.OnKill(timeLeft);
+            int nbFireProjectiles = Main.rand.Next(13, 16);
+            for (int i = 0; i < nbFireProjectiles; i++) {
+                Vector2 fireVelocity = new Vector2(Main.rand.NextFloat(-4f, 4f), Main.rand.NextFloat(-6f, -2f));
+                Projectile.NewProjectile(
+                    Projectile.GetSource_FromThis(),
+                    Projectile.Center,
+                    fireVelocity,
+                    ModContent.ProjectileType<FireResidue>(),
+                    (int)(Projectile.damage * 0.6f),
+                    0f,
+                    Projectile.owner
+                );
+            }
+        }
+    }
+    public class FireResidue : ModProjectile
+    {
+        public override string Texture => $"Terraria/Images/Projectile_" + ProjectileID.MolotovFire;
+        
+        public override void SetDefaults() {
+            Projectile.width = 24;
+            Projectile.height = 24;
+            Projectile.scale = 2f;
+            Projectile.friendly = true;
+            Projectile.hostile = true;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 600;
+            Projectile.tileCollide = true;
+        }
+
+        public override void AI() {
+            Projectile.velocity.Y += 0.2f;
+            Dust d = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, Projectile.velocity.X * 0.2f, Projectile.velocity.Y * 0.2f, 100, default, 1.5f);
+            d.noGravity = true;
+            Lighting.AddLight(Projectile.Center, 0.8f, 0.4f, 0.1f);
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity) {
+            Projectile.velocity.X *= 0.5f;
+            if (Projectile.velocity.Y != oldVelocity.Y) {
+                Projectile.velocity.Y = 0f;
+            }
+            return false;
+        }
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            target.AddBuff(BuffID.OnFire, 240);
+        }
+    }
+    public class GatlingMissile : Missile
+    {
+        public override string Texture => "Terraria/Images/Projectile_" + ProjectileID.RocketII;
+        public new static void SpawnMissile(Vector2 target, MissileStats stats, bool fallStraight = true)
+        {
+            float spawnDistance = 1200f;
+            float radians = fallStraight ? MathHelper.PiOver2 : MathHelper.ToRadians(Main.rand.NextFloat(75f, 105f));
+
+            Vector2 direction = new Vector2((float)Math.Cos(radians), (float)Math.Sin(radians));
+            Vector2 spawnPos = target - (direction * spawnDistance);
+            Vector2 velocity = direction * 16f; 
+
+            Projectile.NewProjectile(
+                null,
+                spawnPos,
+                velocity,
+                ProjectileID.BulletHighVelocity,
+                stats.damage,
+                1f,
+                Main.myPlayer
+            );
+
+            SoundEngine.PlaySound(SoundID.Item11, spawnPos);
+        }
+        public override void OnKill(int timeLeft) {
+            base.OnKill(timeLeft);
+            int nbFireProjectiles = Main.rand.Next(13, 16);
+            for (int i = 0; i < nbFireProjectiles; i++) {
+                Vector2 fireVelocity = new Vector2(Main.rand.NextFloat(-4f, 4f), Main.rand.NextFloat(-6f, -2f));
+                Projectile.NewProjectile(
+                    Projectile.GetSource_FromThis(),
+                    Projectile.Center,
+                    fireVelocity,
+                    ModContent.ProjectileType<FireResidue>(),
+                    (int)(Projectile.damage * 0.6f),
+                    0f,
+                    Projectile.owner
+                );
+            }
+        }
     }
 }

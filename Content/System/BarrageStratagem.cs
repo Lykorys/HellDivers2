@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using HellDivers2.Content.System;
 using Terraria;
@@ -7,10 +6,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using ReLogic.Content;
-using System;
-using Microsoft.Build.Evaluation;
-using Stubble.Core;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace HellDivers2.Content.Stratagems
 {
     public struct MissileStats
@@ -22,20 +17,20 @@ namespace HellDivers2.Content.Stratagems
     }
 
 
-    public class BarrageStratagemEntity : StratagemEntity
+    public class BarrageStratagem : StratagemEntity
     {
 
         public MissileStats stats;
-        private Vector2 originalPosition;
-        private bool isActive = false;
-        private int strikeTimer = 0;
-        private int nbFired = 0;
-        private static Asset<Effect> beamShader;
-        private int totalNb;
-        private int delayBetweenMin;
-        private int delayBetweenMax;
-        private int delayBetween;
-        private float radius;
+        protected Vector2 originalPosition;
+        protected bool isActive = false;
+        protected int strikeTimer = 0;
+        protected int nbFired = 0;
+        protected static Asset<Effect> beamShader;
+        protected int totalNb;
+        protected int delayBetweenMin;
+        protected int delayBetweenMax;
+        protected int delayBetween;
+        protected float radius;
 
         public override void SetStaticDefaults()
         {
@@ -43,19 +38,24 @@ namespace HellDivers2.Content.Stratagems
 				beamShader = ModContent.Request<Effect>("HellDivers2/Content/Assets/Effects/Shaders/StratagemBeam", AssetRequestMode.ImmediateLoad);
 			}
         }
-
-        public static int SpawnBarrage(Vector2 position,Vector2 velocity, MissileStats missileStats, int totalNb, int delayMin, int delayMax, float radius)
+        public override void SetDefaults()
+        {
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.aiStyle = 0;
+        }
+        public static int SpawnBarrage<T>(Vector2 position,Vector2 velocity, MissileStats missileStats, int totalNb, int delayMin, int delayMax, float radius) where T : BarrageStratagem
         {
             Projectile projectile = Projectile.NewProjectileDirect(
                 null, 
                 position, 
                 velocity, 
-                ModContent.ProjectileType<BarrageStratagemEntity>(), 
+                ModContent.ProjectileType<T>(), 
                 0, 
                 0f, 
                 -1
             );
-            if (projectile.ModProjectile is BarrageStratagemEntity barrage)
+            if (projectile.ModProjectile is T barrage)
             {
                 barrage.stats = missileStats;
                 barrage.totalNb = totalNb;
@@ -71,31 +71,24 @@ namespace HellDivers2.Content.Stratagems
         public override void onDetonate()
         {
             if (isActive) return; 
-            Main.NewText("Fire Mission: Small HE Barrage Inbound!", Color.Red); 
+            Main.NewText("Fire Mission: "+Type+" Barrage Inbound!", Color.Red); 
             isActive = true;
-            Projectile.velocity = stats.velocity;
             Projectile.alpha = 255;
             originalPosition = Projectile.Center;
             delayBetween = Main.rand.Next(delayBetweenMin,delayBetweenMax+1);
         }
         public override void AI()
         {
-            base.AI(); 
             if (isActive)
             {
                 strikeTimer++;
                 if (strikeTimer >= delayBetween)
-                {
+                {   
                     strikeTimer = 0;
                     delayBetween = Main.rand.Next(delayBetweenMin,delayBetweenMax+1);
                     float randomDistance = Main.rand.NextFloat(-radius, radius);
                     Vector2 target = Projectile.position+ new Vector2(randomDistance,0f);
-                    Missile.SpawnMissile(
-                        target,
-                        stats,
-                        true
-                    );
-
+                    SpawnPayload(target);
                     nbFired++;
 
                     if (nbFired >= totalNb)
@@ -106,6 +99,16 @@ namespace HellDivers2.Content.Stratagems
                 }
             }
         }
+
+        protected virtual void SpawnPayload(Vector2 target)
+        {
+            Missile.SpawnMissile(
+                target,
+                stats,
+                true
+            );
+        }
+
         public override void PostDraw(Color lightColor)
         {
             Main.spriteBatch.End();
@@ -122,6 +125,42 @@ namespace HellDivers2.Content.Stratagems
             Main.spriteBatch.Draw(TextureAssets.MagicPixel.Value, destination, Color.White);
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+        }
+    }
+    public class BarrageHEStratagem : BarrageStratagem
+    {
+        protected override void SpawnPayload(Vector2 target)
+        {
+            Main.NewText("Classic");
+            Missile.SpawnMissile(
+                target,
+                stats,
+                true
+            );
+        }
+    }
+    public class BarrageNapalmStratagem : BarrageStratagem
+    {
+        protected override void SpawnPayload(Vector2 target)
+        {
+            Main.NewText("napalm");
+            NapalmMissile.SpawnMissile(
+                target,
+                stats,
+                true
+            );
+        }
+    }
+    public class BarrageGatlingStratagem : BarrageHEStratagem
+    {
+        protected override void SpawnPayload(Vector2 target)
+        {
+            Main.NewText("gatling");
+            GatlingMissile.SpawnMissile(
+                target,
+                stats,
+                true
+            );
         }
     }
 }

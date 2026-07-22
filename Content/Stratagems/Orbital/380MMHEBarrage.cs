@@ -46,7 +46,7 @@ namespace HellDivers2.Content.Stratagems
                 explosionRadius = new Vector2(12f, 12f),
                 damage = 300
             };
-            int projIndex = BarrageStratagemEntity.SpawnBarrage(
+            int projIndex = BarrageStratagem.SpawnBarrage<BarrageHEStratagem>(
                 Projectile.Center, 
                 Vector2.Zero,
                 missile, 
@@ -55,7 +55,7 @@ namespace HellDivers2.Content.Stratagems
                 55, 
                 30*16
             );
-            if (projIndex >= 0 && projIndex < Main.maxProjectiles && Main.projectile[projIndex].ModProjectile is BarrageStratagemEntity barrage) barrage.onDetonate();
+            if (projIndex >= 0 && projIndex < Main.maxProjectiles && Main.projectile[projIndex].ModProjectile is BarrageStratagem barrage) barrage.onDetonate();
             Projectile.Kill();//TODO fix projectile despawning
         }
     }
